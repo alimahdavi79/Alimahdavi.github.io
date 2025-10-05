@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سالگرد عشق ما 💖</title>
+    <style>
+        /* تنظیمات عمومی و تم رمانتیک و ملایم */
+        @font-face {
+            font-family: 'Vazir';
+            src: url('Vazir-FD.woff') format('woff'); /* حتما فونت وزیر را در کنار فایل ذخیره کنید */
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Vazir', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8; /* تم روشن و ملایم */
+            color: #333;
+            text-align: right;
+            line-height: 1.8;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2 {
+            color: #b35272; /* رنگ صورتی ملایم برای تیترها */
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --------------------- بخش ورودی (Gate) و پخش آهنگ --------------------- */
+        #entry-gate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 1000;
+        }
+        #entry-gate h1 {
+            color: #b35272;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        #enter-button {
+            background-color: #b35272;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        #enter-button:hover {
+            background-color: #8c3f58;
+        }
+        /* پیام هشدار پخش خودکار آهنگ */
+        #entry-gate p {
+            color: #666;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+
+        /* --------------------- بخش متن عاشقانه --------------------- */
+        .love-text-box {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+            text-align: justify;
+        }
+
+        /* --------------------- بخش آلبوم عکس (شیک و مینیمال) --------------------- */
+        .photo-album {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 3 ستون در دسکتاپ، تنظیم خودکار برای موبایل */
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .photo-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .photo-item:hover {
+            transform: scale(1.03);
+        }
+        .photo-item img {
+            width: 100%;
+            height: 500px; /* ارتفاع ثابت برای یکپارچگی */
+            object-fit: cover; /* پر کردن کادر بدون از دست دادن نسبت */
+            display: block;
+        }
+        .photo-caption {
+            background-color: #fff;
+            padding: 10px 5px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* --------------------- بخش متن آهنگ --------------------- */
+        .lyrics-box {
+            background-color: #f0e6e9; /* پس‌زمینه کمی رنگی برای تمایز */
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+            font-style: italic;
+        }
+        .lyrics-box p {
+            font-size: 1.1em;
+            color: #7a4f5d;
+        }/* --------------------- فوتر (پایان سایت) --------------------- */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #999;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="my-song" preload="auto">
+        <source src="your-song.mp3" type="audio/mpeg"> 
+        مرورگر شما از پخش فایل صوتی پشتیبانی نمی‌کند.
+    </audio>
+
+    <div id="entry-gate">
+        <h1>برای زیباترین بهانه زندگی‌ام</h1>
+        <p>لطفاً برای ورود به یادگار ما و شنیدن آهنگ مشترکمان، دکمه زیر را لمس کنید.</p>
+        <button id="enter-button" onclick="startExperience()">ورود به دنیای ما</button>
+    </div>
+
+    <div id="main-content" style="display: none;">
+
+        <div class="container">
+            <h2>نامه عاشقانه</h2>
+            <div class="love-text-box">
+                <p>
+                    عزیزترینم، سالگرد آشنایی‌مان مبارک!
+                    شاید در نگاه اول روزی عادی به نظر برسد، اما برای من، این روز آغاز یک جادوی بی‌نظیر بود؛ جادویی که تو خالقش بودی. امروز که به گذشته نگاه می‌کنم، می‌بینم تو نه تنها پارتنر من، که بهترین دوست، پناه و قوی‌ترین حامی من بوده‌ای. هر لبخندت برای من یک دلیل جدید برای ادامه دادن است. می‌خواستم این سایت کوچک، گوشه‌ای از تمام خاطرات زیبایی باشد که با هم ساختیم و یادآور این باشد که هر روز کنار تو یک هدیه است...
+                    با تمام عشق، گیگیلت
+                </p>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>برای تو</h2>
+            <div class="lyrics-box">
+                    <p>
+                 همیشه من میبینم تو رو یه جور دیگه<br>
+حتی نگم میخوامت چشمام اینو میگه<br>
+تو اومدی عوض شد همه چی تو یه لحظه<br>
+جدا بمونیم از هم این یه دروغ محضه<br>
+عمر و جون من تو همه وجود من تو<br>
+مهربون من تو فقط تو فقط تو<br>
+عمر و جون من تو همه وجود من تو<br>
+مهربون من تو فقط تو فقط تو<br>
+نمیدونم چه حسی منو میکشونه سمتش<br>
+مثل پروانه ای که دور نور میچرخه با عشق<br>
+الهی هرچی غصه داره تو دلش بمیره<br>
+دل خوش داشته باشه و دلش هیچوقت نگیره<br>
+عمر و جون من تو همه وجود من تو<br>
+مهربون من تو فقط تو فقط تو<br>
+                </p>
+                <br>
+                <button onclick="document.getElementById('my-song').play()" style="background: none; border: 1px solid #b35272; color: #b35272; padding: 10px 20px; border-radius: 5px; cursor: pointer;">دوباره گوش کن</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>آلبوم یادگاری ما</h2>
+            <div class="photo-album">
+                <div class="photo-item"><img src="photo21228799066.jpg" alt="عکس ۱"><div class="photo-caption">گیگیل و بانو</div></div>
+                <div class="photo-item"><img src="1 (18).jpg" alt="عکس ۲"><div class="photo-caption">سفر به شمال</div></div>
+                <div class="photo-item"><img src="1 (2).jpg" alt="عکس ۳"><div class="photo-caption">خنده‌های بی‌وقفه</div></div>
+                <div class="photo-item"><img src="1 (14).jpg" alt="عکس ۴"><div class="photo-caption">تولدت</div></div>
+                <div class="photo-item"><img src="1 (13).jpg" alt="عکس ۵"><div class="photo-caption">شبی که بله گفتی</div></div>
+                <div class="photo-item"><img src="photo21228575255.jpg" alt="عکس ۶"><div class="photo-caption">اولین سلفی</div></div>
+                <div class="photo-item"><img src="photo21228491071.jpg" alt="عکس ۷"><div class="photo-caption">غروبی دلچسب </div></div>
+                <div class="photo-item"><img src="photo21228482065.jpg" alt="عکس ۸"><div class="photo-caption">مسیر مورد علاقه‌مان</div></div>
+                <div class="photo-item"><img src="1 (8).jpg" alt="عکس ۹"><div class="photo-caption">یک شب زمستانی</div></div>
+                <div class="photo-item"><img src="photo21228715538.jpg" alt="عکس ۱۰"><div class="photo-caption">دو نفر تا ابد</div></div>
+                <div class="photo-item"><img src="photo21228361983.jpg" alt="عکس ۱۱"><div class="photo-caption">صبحانه ای عالی</div></div>
+                <div class="photo-item"><img src="photo21228867399.jpg" alt="عکس ۱۲"><div class="photo-caption">من و ماه</div></div>
+                <div class="photo-item"><img src="1 (9).jpg" alt="عکس ۱۴"><div class="photo-caption">لحظه غیرمنتظره</div></div>
+                <div class="photo-item"><img src="1 (17).jpg" alt="عکس ۱۵"><div class="photo-caption">شب به یاد ماندنی</div></div>
+                <div class="photo-item"><img src="1 (15).jpg" alt="عکس ۱۶"><div class="photo-caption">آرامش</div></div>
+                <div class="photo-item"><img src="1 (1).jpg" alt="عکس ۱۷"><div class="photo-caption">ما و دریا</div></div>
+                <div class="photo-item"><img src="1 (10).jpg" alt="عکس ۱۸"><div class="photo-caption">همیشه کنار هم</div></div>
+            </div>
+        </div>
+
+        <footer>
+    برای همیشه با عشق ❤️<br>
+    ساخته شده مخصوص تو
+  </footer>
+
+    </div>
+    
+    <script>
+        function startExperience() {
+            var song = document.getElementById('my-song');
+            var gate = document.getElementById('entry-gate');
+            var content = document.getElementById('main-content');
+
+            // 1. تلاش برای پخش آهنگ
+            song.play().catch(error => {
+                console.log("پخش خودکار مسدود شد. کاربر باید دستی پخش کند.");
+                // در صورت مسدود شدن، حداقل محتوا را نشان می‌دهیم
+            });
+
+            // 2. پنهان کردن صفحه ورودی
+            gate.style.display = 'none';
+
+            // 3. نمایش محتوای اصلی
+            content.style.display = 'block';
+            
+            // (اختیاری) اگر بخواهید محتوا از بالا نشان داده شود:
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+</body>
+</html>
